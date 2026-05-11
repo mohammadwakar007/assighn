@@ -1,0 +1,195 @@
+/* 1. बेसिक सेटिंग्स */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    background-color: #0b010b; /* गहरा काला/बैंगनी बैकग्राउंड */
+    color: white;
+    overflow-x: hidden; /* ताकि साइड से पेज न हिले */
+}
+
+.wrapper {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* 2. नेविगेशन बार */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 10; /* नेवबार सबसे ऊपर रहे */
+}
+
+.navbar div:first-child {
+    font-weight: 900;
+    line-height: 0.9;
+    font-size: 22px;
+}
+
+.menu {
+    display: flex;
+    gap: 40px;
+}
+
+.menu p {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #ccc;
+}
+
+.menu p:hover {
+    color: #ff2d55; /* स्क्विड गेम पिंक कलर */
+}
+
+/* 3. हीरो सेक्शन */
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+}
+
+/* पीछे वाला बड़ा वॉटरमार्क */
+.watermark {
+    position: absolute;
+    font-size: 25vw; /* बहुत बड़ा साइज */
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03); /* एकदम हल्का */
+    z-index: 1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* मुख्य टेक्स्ट और कंटेंट */
+.hero-content {
+    position: relative;
+    z-index: 5; /* इमेज के ऊपर रखने के लिए */
+}
+
+.hero-content h1 {
+    font-size: 100px;
+    line-height: 0.9;
+    margin-bottom: 15px;
+    font-weight: 900;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #aaa;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* बटन स्टाइल्स */
+.hero-btns button {
+    padding: 12px 35px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.play-btn {
+    background-color: #ff2d55;
+    color: white;
+}
+
+.play-btn:hover {
+    background-color: #e6224a;
+    transform: scale(1.05);
+}
+
+.trailer-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white !important;
+}
+
+.trailer-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* 4. मुख्य इमेज (PUBG Character) */
+.hero-img {
+    position: absolute;
+    right: 60px;
+    bottom: 0;
+    height: 95%; /* स्क्रीन की ऊंचाई का 95% */
+    width: auto;
+    z-index: 3; /* वॉटरमार्क के ऊपर लेकिन टेक्स्ट के नीचे */
+    pointer-events: none;
+}
+
+/* 5. दाईं तरफ वाला खड़ा टेक्स्ट */
+.side-text {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+
+
+/* पूरे कंटेनर को एक लाइन में लाने के लिए */
+.cards-container {
+    display: flex;             /* बच्चों को Row में खड़ा करेगा */
+    justify-content: center;   /* स्क्रीन के बीच में रखने के लिए */
+    gap: 20px;                 /* कार्ड्स के बीच की दूरी */
+    padding: 40px 0;
+    width: 100%;
+    position: relative;
+    z-index: 20;               /* ताकि यह बैकग्राउंड टेक्स्ट के ऊपर दिखे */
+}
+
+/* हर कार्ड का डिजाइन */
+.card {
+    width: 300px;              /* कार्ड की चौड़ाई */
+    height: 180px;             /* कार्ड की ऊँचाई */
+    overflow: hidden;          /* इमेज बाहर न निकले */
+    border-radius: 12px;       /* किनारों को गोल करने के लिए */
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* इमेज को कार्ड के अंदर फिट करने के लिए */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* इमेज खिंचेगी नहीं, डब्बे में फिट होगी */
+}
+
+/* माउस ले जाने पर इफेक्ट */
+.card:hover {
+    transform: scale(1.05);    /* थोड़ा बड़ा होगा */
+    border-color: #ff2d55;     /* पिंक कलर की बॉर्डर */
+    cursor: pointer;
+}
